@@ -5,11 +5,13 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  background: linear-gradient(180deg, #f7f4ff 0%, #eef7ff 100%);
+  color: #2a2a2a;
 }
 
 button {
   cursor: pointer;
+  font: inherit;
 }
 
 .app {
@@ -24,33 +26,47 @@ button {
   width: 100%;
   max-width: 600px;
   background-color: #ffffff;
-  border: 1px solid #dcdcdc;
-  border-radius: 8px;
-  padding: 24px;
+  border: 1px solid #d9e4f2;
+  border-radius: 14px;
+  padding: 28px;
+  box-shadow: 0 10px 24px rgba(78, 104, 140, 0.08);
   text-align: center;
+}
+
+.card h1 {
+  margin-top: 0;
+  margin-bottom: 22px;
+  color: #26415e;
 }
 
 .liked-count {
   margin-bottom: 20px;
   font-weight: bold;
+  color: #3c5875;
 }
 
 .quote-box {
-  margin-bottom: 20px;
+  margin-bottom: 24px;
+  padding: 18px;
+  border-radius: 12px;
+  background-color: #f8fbff;
+  border: 1px solid #e2edf8;
 }
 
 .quote {
   font-size: 20px;
   margin-bottom: 10px;
+  line-height: 1.5;
 }
 
 .author {
-  color: #555555;
+  color: #5d7186;
+  font-weight: bold;
 }
 
 .status-message {
   margin-top: 10px;
-  color: #666666;
+  color: #6b5b95;
   font-size: 14px;
 }
 
@@ -63,10 +79,17 @@ button {
 }
 
 .button-group button {
+  min-width: 130px;
   padding: 10px 16px;
-  border: 1px solid #cccccc;
-  border-radius: 4px;
-  background-color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  background-color: #5e81ac;
+  color: #ffffff;
+  transition: background-color 0.2s ease;
+}
+
+.button-group button:hover:not(:disabled) {
+  background-color: #4e6f98;
 }
 
 .button-group button:disabled {
@@ -80,6 +103,7 @@ button {
 
 .liked-section h2 {
   margin-bottom: 12px;
+  color: #26415e;
 }
 
 .liked-section ul {
@@ -89,4 +113,5 @@ button {
 
 .liked-section li {
   margin-bottom: 10px;
+  line-height: 1.5;
 }
