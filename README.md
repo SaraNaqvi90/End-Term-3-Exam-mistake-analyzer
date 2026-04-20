@@ -1,62 +1,152 @@
-# Daily Motivation Dashboard
+# Exam Mistake Analyzer
 
-This is a small React project built with Vite. The idea is simple: show a random motivational quote, let the user like it, and keep track of liked quotes in one place.
+Exam Mistake Analyzer is a beginner-friendly React project that helps students learn from graded tests instead of only checking marks.
 
-The project was made to practice a few core React concepts in a beginner-friendly way, especially `useState`, `useEffect`, array updates, conditional rendering, and `localStorage`.
+The student uploads a graded test, saves each wrong answer, and the app classifies the root cause of the mistake. After that, the app builds a focused revision plan based on repeated patterns such as concept gaps, careless errors, and misread questions.
 
-## What the project does
+## Problem Statement
 
-- Fetches a random quote when the app loads
-- Shows the quote and author on the screen
-- Lets the user load a new quote
-- Lets the user like or unlike the current quote
-- Displays the total number of liked quotes
-- Shows a list of all liked quotes
-- Saves liked quotes in `localStorage` so they stay even after refresh
+Students often solve many papers but still repeat the same mistakes in later exams because they do not track why they lost marks.
 
-## React concepts used
+This project solves that problem by helping a student:
 
-This project mainly focuses on state and side effects.
+- store graded tests in one place
+- save every wrong answer with notes
+- categorize mistakes by root cause
+- build a revision plan from real mistake data
+- track whether each revision task is done
 
-- `useState` is used to store the current quote, author, loading state, status message, and liked quotes
-- `useEffect` is used to fetch a quote when the component first loads
-- Another `useEffect` is used to save liked quotes whenever the liked quotes array changes
-- Array methods like `some`, `filter`, and spread syntax are used for the like/unlike feature
+## Target User
 
-## Quote flow
+The main user is a school or college student who wants to improve exam performance by understanding patterns in their mistakes.
 
-When the app opens, it calls the quote API and tries to get one random quote. If the request works, the quote and author are shown normally.
+## Why This Problem Matters
 
-If the API is unavailable, the app uses a small built-in fallback quote system. That means the page still works and the user can still test the main features without getting stuck on a broken API.
+- marks are lost not only because of weak concepts, but also because of careless habits and poor revision
+- students usually forget old mistakes after a few days
+- one clear system can improve revision quality and exam confidence
 
-## Tech stack
+## Main Features
+
+- Email/password authentication with Firebase Auth
+- Protected routes
+- Upload graded test details
+- Save wrong answers for each test
+- Root cause suggestion using simple rule-based logic
+- CRUD operations for tests and mistakes
+- Dashboard with stats and recent tests
+- Study plan page with priority topics
+- Revision checklist with status updates
+
+## React Concepts Used
+
+### Core React
+
+- Functional components
+- Props
+- Component composition
+- `useState`
+- `useEffect`
+- Conditional rendering
+- Lists and keys
+
+### Intermediate React
+
+- Lifting state up
+- Controlled components
+- React Router
+- Context API
+
+### Advanced React
+
+- `useMemo` for filtered lists and dashboard stats
+- `useRef` for form focus/scroll and file input reset
+- `React.lazy` and `Suspense` for lazy loaded pages
+
+## Tech Stack
 
 - React
 - Vite
+- React Router
+- Firebase Authentication
+- Firebase Firestore
 - CSS
-- DummyJSON random quotes endpoint
 
-## How to run the project
+## Folder Structure
+
+```text
+src/
+  components/
+  context/
+  hooks/
+  pages/
+  services/
+  utils/
+  App.jsx
+  main.jsx
+  index.css
+```
+
+## Firebase Setup
+
+1. Create a Firebase project.
+2. Enable Authentication with Email/Password.
+3. Create a Firestore database.
+4. Copy the rules from `firestore.rules` into Firestore Rules.
+5. Copy `.env.example` to `.env`.
+6. Paste your Firebase credentials into the `.env` file.
+
+## Suggested Firestore Collections
+
+- `examSessions`
+- `mistakes`
+
+## How To Run
 
 ```bash
 npm install
 npm run dev
 ```
 
-After that, open the local link shown in the terminal.
+## Build For Production
 
-## Project structure
-
-```text
-src/
-  App.jsx
-  main.jsx
-  index.css
-index.html
-package.json
-vite.config.js
+```bash
+npm run build
 ```
 
-## Notes
+## Deployment Idea
 
-The UI is intentionally simple. The goal of this project is not advanced design, but clear logic and beginner-level React practice.
+This project is a good fit for Vercel or Netlify.
+
+### Vercel Steps
+
+1. Push the code to GitHub.
+2. Go to Vercel and import the GitHub repository.
+3. Add the same Firebase environment variables in Vercel.
+4. Deploy.
+
+`vercel.json` is already included so React Router routes work after deployment.
+
+### Netlify Steps
+
+1. Push the code to GitHub.
+2. Import the project in Netlify.
+3. Set the build command to `npm run build`.
+4. Set the publish directory to `dist`.
+5. Add the Firebase environment variables.
+6. Deploy.
+
+## Demo Video Idea
+
+In your 3 to 5 minute demo, explain:
+
+1. The student problem you are solving
+2. Login and signup
+3. Uploading a graded test
+4. Saving a mistake and showing the suggested root cause
+5. Dashboard summary
+6. Study plan and revision checklist
+
+## Viva Tip
+
+The categorization logic is intentionally simple and explainable. It uses keyword-based rules instead of a complex machine learning model so that every part of the code can be understood and explained clearly as a beginner project.

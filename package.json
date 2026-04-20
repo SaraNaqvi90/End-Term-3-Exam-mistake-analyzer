@@ -1,5 +1,5 @@
 {
-  "name": "daily-motivation-dashboard",
+  "name": "exam-mistake-analyzer",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,8 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "firebase": "^10.12.5",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.13.2"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.4",
